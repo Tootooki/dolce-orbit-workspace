@@ -17,7 +17,7 @@ async function unlock(value){
   const dataset=JSON.parse(new TextDecoder().decode(plain));if(!Array.isArray(dataset.areas)||dataset.task_count!==374)throw Error('Invalid dataset');
   window.TASK_DATA=dataset;
   try{sessionStorage.setItem('orbit-workspace-access',value.trim());}catch{}
-  const script=document.createElement('script');script.src='app.js';script.onload=()=>{screen.remove();};script.onerror=()=>{message.textContent='The workspace could not load. Refresh to try again.';};document.head.append(script);
+  const script=document.createElement('script');script.src='app.js?v=minimal-1';script.onload=()=>{screen.remove();};script.onerror=()=>{message.textContent='The workspace could not load. Refresh to try again.';};document.head.append(script);
  }catch{
   message.textContent='Open your full private link, or enter the workspace access key.';form.hidden=false;unlocking=false;
  }
